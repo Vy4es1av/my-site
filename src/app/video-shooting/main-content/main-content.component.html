@@ -1,0 +1,142 @@
+<section class="main-content">
+  <div class="container">
+    <div class="chapter1 box anim-show" *ngIf="isShow1">
+      <div class="images"><img src="assets/chapterPicture1.jpg" alt=""></div>
+      <div class="content">
+        <h3 class="title-text-content">РЕКЛАМНЫЕ ВИДЕОРОЛИКИ</h3>
+        <div class="content-flexing">
+          <div class="line-img"></div>
+          <div class="bg-text-content">
+            <p class="text-content text-content1">
+              Рекламный ролик – надежное средство привлечения
+              потенциальных покупателей. Он формирует
+              положительный образ компании, увеличивает объемы
+              продаж,заинтересовывает потребителей. Качественно
+              снятый и смонтированный рекламный ролик
+              воздействует на целевую аудиторию, выгодно
+              отличаякомпанию-производителя от конкурентов.
+            </p>
+            <p class="text-content text-content2">
+              Создание рекламных роликов – одно из ведущих
+              направлений маркетингового агентства «Джайб». Высокая
+              квалификация, многолетний опыт в сфере рекламы
+              и продвижения товаров и услуг, тесная работа с заказчиком
+              обеспечивают создание рекламных роликов высокого
+              качества в короткие сроки. На странице портфолио
+              представлены примеры рекламных видеороликов, созданных в МА «Джайб».
+            </p>
+          </div>
+          <div class="line-img"></div>
+        </div>
+        <button class="btn-content" (click)="openModel()" (click)="gotoTop()">Заказать видеосъемку</button>
+      </div>
+    </div>
+
+    <div class="chapter2 box anim-show" *ngIf="isShow2">
+      <div class="content">
+        <h3 class="title-text-content">ВИДЕО-ОТЗЫВЫ</h3>
+        <div class="content-flexing">
+          <div class="line-img"></div>
+          <div class="bg-text-content">
+            <p class="text-content text-content1">
+              Видео отзывы – современный инструмент продвижения товаров и услуг, позволяющий рассказать о преимуществах
+              потенциальным потребителям. Правильно составленный видео отзыв отражает сильные стороны продукта и
+              привлекает новых покупателей.
+            </p>
+            <h3 class="subtitle-text-content">Отзывы на видео – полезный контент</h3>
+            <p class="text-content text-content2">
+              Лучшие отзывы на видео позволяют улучшить имидж компании и укрепить к
+              ней доверие клиента. Визуализация – одно из ведущих направлений в рекламе и продвижении. Лучшие отзывы на
+              видео побуждают клиента сделать заказ, способствуют росту продаж до 30% и улучшению поведенческого фактора
+              потребителя на сайте.
+            </p>
+          </div>
+          <div class="line-img"></div>
+        </div>
+        <button class="btn-content" (click)="openModel()" (click)="gotoTop()">Заказать видеосъемку</button>
+      </div>
+      <div class="images"><img src="assets/chapterPicture2.jpg" alt=""></div>
+    </div>
+
+    <div class="chapter3 box anim-show" *ngIf="isShow3">
+      <div class="images"><img src="assets/chapterPicture3.jpg" alt=""></div>
+      <div class="content">
+        <h3 class="title-text-content">ВИДЕО-ОБЗОРЫ</h3>
+        <div class="content-flexing">
+          <div class="line-img"></div>
+          <div class="bg-text-content">
+            <p class="text-content text-content1">
+              Видео обзор – популярный вид рекламного видео, рассказывающий о преимуществах продукта или услуги. При
+              помощи видео обзора покупатель досконально изучает товар со всех сторон, узнает об изготовителе и
+              производителе и делает покупки. Зачастую, после просмотра информационного ролика потребитель принимает
+              решение о заказе.
+            </p>
+            <h3 class="subtitle-text-content">Видеообзор новинок, услуг, товаров</h3>
+            <p class="text-content text-content2">
+              Видеообзор новинок и товаров – своеобразная дистанционная помощь
+              консультанта. Этот вид рекламы повышает доверие покупателей к компании и увеличивает рост продаж.
+              Благодаря
+              видеообзорам новинок и другой продукции у покупателя есть возможность оценить качество товаров,
+              эргономичность и другие параметры. Скучные покупки превращаются в процесс интересного шоппинга, не выходя
+              из
+              квартиры.
+            </p>
+          </div>
+          <div class="line-img"></div>
+        </div>
+        <button class="btn-content" (click)="openModel()" (click)="gotoTop()">Заказать видеосъемку</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-beckground anim-show" id="myModalBackground" (click)="CloseModel()"></div>
+  <div class="modal anim-show" id="myModal">
+    <div class="modal-body">
+      <p class="modal-text">Запись к нам!</p>
+      <div class="modal-close" (click)="CloseModel()">&#10006;</div>
+      <form action="" class="filling-form">
+        <form [formGroup]="contactForm" class="form-group">
+
+          <div>
+            <label for="firstName">Имя:</label>
+            <input class="input-d" type="text" id="firstName" formControlName="firstName" name="firstName" required>
+          </div>
+
+          <small class="validText"
+            *ngIf="contactForm.get('firstName')?.invalid && contactForm.get('firstName')?.touched">Не
+            указано имя</small>
+
+          <div>
+            <label for="phone">Телефон:</label>
+            <input class="input-d" type="text" id="phone" formControlName="phone" required pattern="[0-9]{11}">
+          </div>
+
+          <small class="validText"
+            *ngIf="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched">Некорректный телефон</small>
+
+          <div>
+            <label for="Email">E-mail:</label>
+            <input class="input-d" type="text" id="email" formControlName="email" required>
+          </div>
+
+          <small class="validText" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+            pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">Некорректный email</small>
+
+          <div>
+            <label for="textarea">Комметарий:</label>
+            <textarea maxlength="8000" class="input-d" type="text" id="textarea" formControlName="message"
+              required></textarea>
+          </div>
+
+          <small class="validText validMessage"
+            *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">Данные не введены</small>
+
+          <button type="reset" mat-raised-button color="primary" [disabled]="contactForm.invalid"
+            (click)="submitDate(contactForm.value)">Отправить</button>
+
+          <p *ngIf="isSubmit" class="submitMessage">{{submitMessage}}</p>
+        </form>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,299 @@
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+p, h1, h2, h3, h4, h5, h6, span {
+  font-family: "Roboto", sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0;
+}
+
+.carousel-container {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  max-width: 1060px;
+  border-radius: 50px;
+  box-shadow: 0 0 24px #000000;
+}
+
+.carousel-container img {
+  display: none;
+  border-radius: 50px;
+}
+
+.carousel-container h3,
+.carousel-container p {
+  display: none;
+}
+
+.carousel-container img.image-active {
+  display: block;
+  width: 100%;
+  max-height: 698px;
+}
+
+.carousel-container h3.image-active,
+.carousel-container p.image-active {
+  display: block;
+}
+
+.title-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.titleNumber {
+  font-weight: 700;
+  font-size: 64px;
+}
+
+.titleText {
+  font-weight: 700;
+  font-size: 32px;
+  max-width: 585px;
+  text-align: left;
+}
+
+.subTitleText {
+  font-weight: 300;
+  font-size: 28px;
+  max-width: 994px;
+  text-align: left;
+}
+
+.outside-text {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  padding: 40px;
+  margin-top: 368px;
+  transition: all 0.1s ease 0s;
+}
+
+.carousel-dot-container {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  padding: 0;
+  margin-top: 26px;
+  margin-bottom: 1rem;
+}
+
+.dot {
+  cursor: pointer;
+  height: 28px;
+  width: 28px;
+  margin: 0 5px;
+  background-color: #212121;
+  border-radius: 50px;
+  border: #fff solid 1px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+
+.active, .dot:hover {
+  background-color: #000000;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fas {
+  padding: 12px;
+  transition: all 0.1s ease 0s;
+  border-radius: 50%;
+}
+
+.btn-carousel img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-carousel {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border: #FFF solid 1px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  margin-top: 300px;
+}
+
+.btn-prev {
+  left: 0;
+}
+.btn-next {
+  right: 0;
+}
+
+.btn-carousel {
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.15s ease;
+}
+
+.btn-carousel:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.icon-carousel:active {
+  opacity: 0.5;
+}
+
+@media only screen and (max-width: 1100px) {
+  .carousel-container {
+    margin: 0 20px;
+  }
+
+  .subTitleText {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 1040px) {
+  .outside-text {
+    margin-top: 330px;
+  }
+
+  .btn-carousel {
+    margin-top: 260px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .titleText {
+    font-size: 24px;
+  }
+  
+  .subTitleText {
+    font-size: 22px;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .outside-text {
+    margin-top: 300px;
+  }
+
+  .btn-carousel {
+    margin-top: 250px;
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .titleText {
+    font-size: 26px;
+  }
+  
+  .subTitleText {
+    font-size: 20px;
+  }
+
+  .outside-text {
+    margin-top: 260px;
+  }
+
+  .btn-carousel {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .outside-text {
+    margin-top: 200px;
+  }
+}
+
+@media only screen and (max-width: 786px) {
+  .outside-text {
+    margin-top: 160px;
+  }
+  .titleText {
+    font-size: 22px;
+  }
+  
+  .subTitleText {
+    font-size: 16px;
+  }
+
+  .carousel-dot-container {
+    gap: 50px;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .outside-text {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .titleNumber {
+    font-size: 36px;
+  }
+  
+  .titleText {
+    font-size: 18px;
+  }
+  
+  .subTitleText {
+    font-size: 12px;
+  }
+
+  .dot {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .titleText {
+    font-size: 16px;
+  }
+  
+  .subTitleText {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .titleNumber {
+    font-size: 26px;
+  }
+  
+  .titleText {
+    font-size: 14px;
+  }
+  
+  .subTitleText {
+    font-size: 8px;
+  }
+}

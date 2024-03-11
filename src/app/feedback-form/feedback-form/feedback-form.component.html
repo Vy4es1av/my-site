@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="form-info">
+    <h3 class="form-title">У ВАС ОСТАЛИСЬ ВОПРОСЫ? НАПИШИТЕ НАМ!</h3>
+    <img class="camera" src="assets/formPicture.svg" alt="camera">
+    <p class="form-subtitle">Наш менеджер свяжется с вами в ближайшее время и ответит на все ваши вопросы!</p>
+  </div>
+  <div class="bg-form">
+    <form [formGroup]="contactForm" class="form-group">
+
+      <div>
+        <label for="firstName">Имя:</label>
+        <input class="input-d" type="text" id="firstName" formControlName="firstName" name="firstName" required pattern="[A-Za-zА-Яа-яЁё]{2,}">
+      </div>
+
+      <small class="validText" 
+        *ngIf="contactForm.get('firstName')?.invalid && contactForm.get('firstName')?.touched">Не корректное имя</small>
+
+      <div>
+        <label for="phone">Телефон:</label>
+        <input class="input-d" type="text" id="phone" formControlName="phone" required pattern="[0-9]{11}">
+      </div>
+
+      <small class="validText"
+        *ngIf="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched">Некорректный телефон</small>
+
+      <div>
+        <label for="Email">E-mail:</label>
+        <input class="input-d" type="text" id="email" formControlName="email" required>
+      </div>
+
+      <small class="validText" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+        pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">Некорректный email</small>
+
+      <div>
+        <label for="textarea">Комметарий:</label>
+        <textarea maxlength="8000" class="input-d" type="text" id="textarea" formControlName="message"
+          required></textarea>
+      </div>
+
+      <small class="validText validMessage"
+        *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">Данные не введены</small>
+
+      <button type="reset" mat-raised-button color="primary" [disabled]="contactForm.invalid"
+        (click)="submitDate(contactForm.value)">Отправить</button>
+
+      <p *ngIf="isSubmit" class="submitMessage">{{submitMessage}}</p>
+    </form>
+  </div>
+</div>
+
+<div class="map" (click)="activeMap()" style="position:relative;overflow:hidden;">
+  <a href="https://yandex.ru/maps/20256/sukhoi-log/?utm_medium=mapframe&utm_source=maps"
+    style="color:#eee;font-size:12px;position:absolute;top:0px;">Сухой Лог</a><a
+    href="https://yandex.ru/maps/20256/sukhoi-log/geo/ulitsa_kirova/1534457362/?ll=62.038655%2C56.905485&utm_medium=mapframe&utm_source=maps&z=17"
+    style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Кирова — Яндекс Карты</a>
+  <iframe [class.mapClass]="yandexMap"
+    src="https://yandex.ru/map-widget/v1/?ll=62.038655%2C56.905485&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNTM0NDU3MzYyEmHQoNC-0YHRgdC40Y8sINCh0LLQtdGA0LTQu9C-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwg0KHRg9GF0L7QuSDQm9C-0LMsINGD0LvQuNGG0LAg0JrQuNGA0L7QstCwIgoNlid4QhU6n2NC&z=17"
+    width="1920" height="400" allowfullscreen="true" style="position:relative;" scrolling="no" frameborder="0"
+    marginheight="0px" marginwidth="0px">
+  </iframe>
+</div>

@@ -1,0 +1,31 @@
+<ngx-spinner bdColor="rgb(255,255,255)" size="medium" color="#000000" type="ball-clip-rotate" [fullScreen]="true">
+  <p style="color: black"> Загрузка... </p>
+</ngx-spinner>
+
+<header class="header" (scroll)="onscroll()" (click)="gotoTop()" [ngClass]="navbarfixed?'fixed':'nofixed'">
+  <div class="container">
+    <div class="header-group">
+      <div class="menu_icon" (click)="openMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="nav">
+          <img routerLink="/main" routerLinkActive="active" class="logo" (click)="closeMenu()" (click)="openSpinner()" (click)="gotoTop()" src="assets/logo.svg" alt="logo">
+        <ul class="menu" [class.menuClass]="menuVariable">
+          <li class="menu-list">
+            <a routerLink="/main" routerLinkActive="active" class="menu-link" (click)="closeMenu()" (click)="openSpinner()" (click)="gotoTop()">ГЛАВНАЯ</a>
+          </li>
+          <li class="menu-list">
+            <a routerLink="/video-shooting" routerLinkActive="active" class="menu-link"
+            (click)="closeMenu()" (click)="gotoTop()" (click)="openSpinner()">ВИДЕОСЪЕМКА</a>
+          </li>
+          <li class="menu-list">
+            <a routerLink="/contact" routerLinkActive="active" class="menu-link" (click)="closeMenu()" (click)="openSpinner()" (click)="gotoTop()">КОНТАКТЫ</a>
+          </li>
+        </ul>
+        <a href="tel:79089145302" class="menu-number">+7(908) 914-53-02</a>
+      </nav>
+    </div>
+  </div>
+</header>

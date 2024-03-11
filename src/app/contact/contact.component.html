@@ -1,0 +1,97 @@
+<section class="contact-info">
+  <div class="container">
+    <div class="content-contact-info">
+      <div class="images"><img src="assets/contactPicture1.jpg" alt=""></div>
+      <div class="contact-group-info">
+        <div class="contact-text-info">
+          <h2 class="contact-title-text">
+            Контактная
+            ифнормация
+          </h2>
+          <p class="contact-subtitle">Телефон:
+            <a href="tel:79089145302" class="contact-link">+7(908) 914-53-02</a>
+          </p>
+          <p class="contact-subtitle">Email:
+            <a href="mailto:mr.slava.savostin@mail.ru" class="contact-link">mr.slava.savostin@mail.ru</a>
+          </p>
+          <p class="contact-subtitle">Адрес: Сухой лог, ул.Кирова д.5</p>
+          <p class="contact-time-info">Мы открыты с 10:00 до 23:00, без выходных!</p>
+          <p class="contact-piar">Звоните и бронируйте время. Ждем вас!</p>
+          <button class="contactBtn" (click)="openModel()" (click)="gotoTop()">ХОЧУ ЗАПИСАТЬСЯ!</button>
+        </div>
+        <div class="social">
+          <div class="social-item">
+            <div class="social-background">
+              <a href="https://vk.com/slavkakakafka" class="social-link" target="_blank">
+                <img src="assets/logo-vk.svg" alt="Социальная сеть - вконтакте">
+              </a>
+            </div>
+          </div>
+          <div class="social-item">
+            <div class="social-background">
+              <a href="https://github.com/Vy4es1av" class="social-link" target="_blank">
+                <img src="assets/logo-github.svg" alt="Учётная запись ГитХаб">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-beckground anim-show" id="myModalBackground" (click)="CloseModel()"></div>
+  <div class="modal anim-show" id="myModal">
+    <div class="modal-body">
+      <p class="modal-text">Запись к нам!</p>
+      <div class="modal-close" (click)="CloseModel()">&#10006;</div>
+      <form action="" class="filling-form">
+        <form [formGroup]="contactForm" class="form-group">
+
+          <div>
+            <label for="firstName">Имя:</label>
+            <input class="input-d" type="text" id="firstName" formControlName="firstName" name="firstName" required
+              pattern="[^a-zA-ZА-Яа-яЁё]">
+          </div>
+
+          <small class="validText"
+            *ngIf="contactForm.get('firstName')?.invalid && contactForm.get('firstName')?.touched">Не
+            указано имя</small>
+
+          <div>
+            <label for="phone">Телефон:</label>
+            <input class="input-d" type="text" id="phone" formControlName="phone" required pattern="[0-9]{11}">
+          </div>
+
+          <small class="validText"
+            *ngIf="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched">Некорректный телефон</small>
+
+          <div>
+            <label for="shootAbout">Что будем снимать:</label>
+            <input class="input-d" type="text" id="email" formControlName="shootAbout" required
+              pattern="[^a-zA-ZА-Яа-яЁё]">
+          </div>
+
+          <small class="validText"
+            *ngIf="contactForm.get('shootAbout')?.invalid && contactForm.get('shootAbout')?.touched">Используйте только
+            кириллицу</small>
+
+          <div>
+            <label for="textarea">Комметарий:</label>
+            <textarea maxlength="8000" class="input-d" type="text" id="textarea" formControlName="message"
+              required></textarea>
+          </div>
+
+          <small class="validText validMessage"
+            *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">Данные не введены</small>
+
+          <button type="reset" mat-raised-button color="primary" [disabled]="contactForm.invalid"
+            (click)="submitDate(contactForm.value)">Отправить</button>
+
+          <p *ngIf="isSubmit" class="submitMessage">{{submitMessage}}</p>
+        </form>
+      </form>
+    </div>
+  </div>
+</section>
+
+<app-feedback-form></app-feedback-form>
+<button class="toUpBtn anim-show" *ngIf="isShow" (click)="gotoTop()"><img src="assets/arrowUp.svg" alt=""></button>

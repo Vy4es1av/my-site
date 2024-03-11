@@ -1,0 +1,172 @@
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #212121;
+}
+
+.header-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  height: 90px;
+  gap: 103px;
+  margin: 0 20px;
+}
+
+.menu {
+  display: flex;
+  gap: 0 58px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+ul.menu {
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+.menu-link {
+  font-size: 20px;
+}
+
+.menu-number {
+  font-size: 28px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  width: 235px;
+  margin-left: 214px;
+}
+
+a {
+  position: relative;
+	color: #FFFFFF;
+	cursor: pointer;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.menu-link::after {
+  display: block;
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: #FFFFFF;
+	content: "";
+	transition: width 0.3s ease-out;
+}
+
+a:hover::after{
+  width: 100%;
+}
+
+.fixed {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  transition: 0.5s linear;
+  z-index: 1;
+}
+
+.notfixed {
+  position: static;
+  top: -50px;
+  transition: 0.5s linear;
+}
+
+img.logo {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1220px) {
+  .menu-number {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .menu {
+    position: fixed;
+    right: -1000px;
+    top: 70px;
+    width: 280px;
+    height: 100%;
+    background: #212121;
+    transition: 0.4s ease-in-out;
+  }
+  ul.menu {
+    display: block;
+    text-align: left;
+    width: 100%;
+    z-index: 10000;
+  }
+
+  li.menu-list {
+    margin: 0;
+    padding: 20px 0 20px 20px;
+    border-bottom: #414141 solid 1px;
+    text-align: center;
+  }
+
+  .menu_icon {
+    display: inline-block;
+    position: static;
+    cursor: pointer;
+    order: 1;
+    width: 120px;
+    padding-top: 35px;
+  }
+
+  .menu_icon span{
+    width: 45px;
+    height: 3px;
+    background: #ffffff;
+    display: block;
+  }
+
+  .menu_icon span:nth-child(2) {
+    margin: 8px 0;
+  }
+
+  .menuClass {
+    right: 0;
+    transition: 0.4s ease-in-out;
+  }
+  
+  a.menu-number {
+    margin-right: -70px;
+  }
+
+  a.menu-number {
+    font-size: 24px;
+    margin-left: 30px;
+    max-width: 198px;
+  }
+}
+
+@media only screen and (max-width: 586px) {
+  a.menu-number {
+    font-size: 20px;
+    margin-left: 0;
+  }
+
+  .nav {
+    gap: 30px;
+  }
+}

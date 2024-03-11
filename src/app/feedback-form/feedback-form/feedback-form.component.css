@@ -1,0 +1,175 @@
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+label, input, textarea {
+  font-weight: 300;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+}
+
+label {
+  display: block;
+  color: #FFFFFF;
+}
+
+input, textarea {
+  color: #FFFFFF;
+  background-color: transparent;
+  outline: none;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+input {
+  height: 35px;
+  font-size: 16px;
+}
+
+textarea {
+  max-width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+.bg-form {
+  width: 600px;
+  height: 480px;
+  background-color: #1C1C1C;
+  border: rgba(255, 255, 255, 0.1) solid 1px;
+  border-radius: 2px;
+  padding: 30px;
+}
+
+.form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+}
+
+.input-d {
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+  transition: all 0.05s ease 0s;
+}
+
+.input-d:focus {
+  border-bottom: 3px solid #FFFFFF;
+}
+
+.submitMessage {
+  margin: 0 auto;
+  color: green;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.validText {
+  font-family: "Roboto", sans-serif;
+  color: #D05D5D;
+  font-weight: 300;
+  font-size: 12px;
+  margin-top: -30px;
+  margin-bottom: 20px;
+}
+
+.validMessage {
+  margin-top: -10px;
+}
+
+button:disabled {
+  background-color: rgba(63, 81, 181, 0.5);
+  color: #707070;
+}
+
+p, h3 {
+  font-family: "Roboto", sans-serif;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.form-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-title {
+  font-weight: 500;
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.camera {
+  margin-bottom: 28px;
+}
+
+
+.form-subtitle {
+  font-weight: 300;
+  font-size: 16px;
+  margin-bottom: 44px;
+  text-align: center;
+}
+
+.map {
+  margin-top: 115px;
+  width: 100%;
+}
+
+.map iframe {
+  width: 100%;
+  display: block;
+  pointer-events: all;
+  position: relative;
+  pointer-events: none;
+}
+
+.map .mapClass {
+  pointer-events: auto;
+}
+
+@media only screen and (max-width: 780px) {
+  .form-title {
+    font-size: 26px;
+  }
+
+  .form-subtitle {
+    font-size: 16px;
+  }
+
+  .bg-form {
+    width: 400px;
+  }
+
+  .container {
+    margin-top: 60px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .form-title {
+    font-size: 22px;
+  }
+
+  .form-subtitle {
+    font-size: 12px;
+  }
+
+  .bg-form {
+    width: 260px;
+  }
+}

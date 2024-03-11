@@ -1,0 +1,74 @@
+<section class="top">
+  <div class="container">
+    <h1 class="top-title">ВИДЕОСЪЕМКА</h1>
+    <p class="top-subtitle">
+      ВИДЕО ОБЗОРЫ
+      ВИДЕО ОТЗЫВЫ
+      РЕКАЛМНЫЕ РОЛИКИ
+    </p>
+    <p class="top-top-text">Всё виды видеосъемки</p>
+    <button class="reg-btn" (click)="openModel()" (click)="gotoTop()">Оставить заявку</button>
+    <div class="info-down">
+      <div class="container-arrow">
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+        <span class="text">Листай дальше, чтобы узнать больше</span>
+      </div>
+    </div>
+  </div>
+  <div class="modal-beckground anim-show" id="myModalBackground" (click)="CloseModel()"></div>
+  <div class="modal anim-show" id="myModal">
+    <div class="modal-body">
+      <p class="modal-text">Запись к нам!</p>
+      <div class="modal-close" (click)="CloseModel()">&#10006;</div>
+      <form action="" class="filling-form">
+        <form [formGroup]="contactForm" class="form-group">
+
+          <div>
+            <label for="firstName">Имя:</label>
+            <input class="input-d" type="text" id="firstName" formControlName="firstName" name="firstName" required pattern="[A-Za-zА-Яа-яЁё]{2,}">
+          </div>
+
+          <small class="validText"
+            *ngIf="contactForm.get('firstName')?.invalid && contactForm.get('firstName')?.touched">Не
+            указано имя</small>
+
+          <div>
+            <label for="phone">Телефон:</label>
+            <input class="input-d" type="text" id="phone" formControlName="phone" required pattern="[0-9]{11}">
+          </div>
+
+          <small class="validText"
+            *ngIf="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched">Некорректный телефон</small>
+
+          <div>
+            <label for="Email">E-mail:</label>
+            <input class="input-d" type="text" id="email" formControlName="email" required>
+          </div>
+
+          <small class="validText" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+            pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">Некорректный email</small>
+
+          <div>
+            <label for="textarea">Комметарий:</label>
+            <textarea maxlength="8000" class="input-d" type="text" id="textarea" formControlName="message"
+              required></textarea>
+          </div>
+
+          <small class="validText validMessage"
+            *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">Данные не введены</small>
+
+          <button type="reset" mat-raised-button color="primary" [disabled]="contactForm.invalid"
+            (click)="submitDate(contactForm.value)">Отправить</button>
+
+          <p *ngIf="isSubmit" class="submitMessage">{{submitMessage}}</p>
+        </form>
+      </form>
+    </div>
+  </div>
+</section>
+<app-main-content></app-main-content>
+<app-feedback-form></app-feedback-form>
+
+<button class="toUpBtn anim-show" *ngIf="isShow" (click)="gotoTop()"><img src="assets/arrowUp.svg" alt=""></button>

@@ -1,0 +1,37 @@
+<div class="container">
+  <div *ngIf="images && images.length > 0" class="carousel-container">
+    <img *ngFor="let image of images; let i = index" [src]="image.imageSrc" [alt]="image.imageAlt"
+      [ngClass]="{'image-active': selectedIndex === i}" class="fade">
+  
+    <div class="outside-text">
+      <div class="title-group">
+        <h3 *ngFor="let image of images; let i = index" [ngClass]="{'image-active': selectedIndex === i}" class="titleNumber">
+          {{ image.titleNumber }}
+        </h3>
+        <h3 *ngFor="let image of images; let i = index" [ngClass]="{'image-active': selectedIndex === i}" class="titleText">
+          {{ image.titleText }}
+        </h3>
+      </div>
+      <p *ngFor="let image of images; let i = index" [ngClass]="{'image-active': selectedIndex === i}" class="subTitleText">
+        {{ image.subTitleText }}
+      </p>
+    </div>
+  
+    <div *ngIf="controls" class="btn-carousel btn-prev">
+      <div class="fas fa-arrow-circle-left icon-carousel icon-prev" (click)="onPrevClick()">
+        <img src="assets/arrowLeft.svg" alt="left-arrow">
+      </div>
+    </div>
+  
+    <div *ngIf="controls" class="btn-carousel btn-next">
+      <div class="fas fa-arrow-circle-right icon-carousel icon-next" (click)="onNextClick()">
+        <img src="assets/arrowRight.svg" alt="left-arrow">
+      </div>
+    </div>
+  </div>
+  <div *ngIf="idnicators" class="carousel-dot-container">
+    <span *ngFor="let dot of images; let i = index" class="dot" [ngClass]="{'active': selectedIndex === i}"
+      (click)="selectImage(i)">
+    </span>
+  </div>
+</div>
